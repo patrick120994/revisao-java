@@ -15,7 +15,10 @@ public class Revisao {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        parImpar objeto = new parImpar();
         
+        objeto.vereficaparImpar(5);
+        objeto.vereficaparImpar(20);
         // Laço de repetição FOR - Tabuada
         int tabuada = 2;
         
