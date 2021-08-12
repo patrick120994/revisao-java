@@ -21,11 +21,9 @@ public class TerminalBanco {
         
 
         
-        System.out.println(conta1.toString());
-        //System.out.println(conta2.toString());
+
         conta1.sacar(50);
-        System.out.println(conta1.toString());
-       //conta2.sacar(200);
+
         conta1.deposito(1000);
         System.out.println(conta1.toString());
         conta1.transfere(conta2, 50);

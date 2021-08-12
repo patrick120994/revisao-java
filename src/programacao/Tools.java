@@ -10,5 +10,8 @@ package programacao;
  * @author patrick.dalferth
  */
 public class Tools {
+    public static String formataValor(double valor){
+        return "R$ " + valor;
+    }
     
 }

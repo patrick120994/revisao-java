@@ -24,18 +24,16 @@ public class Conta {
         this.saldo = saldo;
     }
     
-    public void sacar(double valorSaque){
-        double saldoNovo = this.saldo - valorSaque;
-        this.saldo = saldoNovo;
+    public void sacar(double valor){
+        this.saldo -= valor;
     }
-     public void deposito(double valorDeposito) {
-       double saldoNovo = this.saldo + valorDeposito;
-        this.saldo = saldoNovo;
+     public void deposito(double valor) {
+        this.saldo += valor;
     }
     
-         public void transfere(Conta destino, double valorTransferencia){
-        this.saldo = this.saldo - valorTransferencia;
-        destino.saldo = destino.saldo + valorTransferencia;
+         public void transfere(Conta conta2, double valor){
+        sacar(valor);
+        conta2.deposito(valor);
         
     
       
@@ -75,7 +73,7 @@ public class Conta {
     
    @Override
     public String toString(){
-        return "Conta: " + this.conta + " - Saldo: " + this.saldo; 
+         return "Conta: " + this.conta + " - Saldo: " + Tools.formataValor(this.saldo);
     }
     
 }
