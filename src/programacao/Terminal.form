@@ -66,7 +66,7 @@
                           <Component id="lblNome1" min="-2" pref="75" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="txtValor" min="-2" pref="93" max="-2" attributes="0"/>
+                          <Component id="txtValor1" min="-2" pref="93" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="lblSaldo1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -96,7 +96,7 @@
                       <Component id="jblValorSaldo1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtValor" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtValor1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jblDepositar1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -131,9 +131,9 @@
             <Property name="text" type="java.lang.String" value="R$:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtValor">
+        <Component class="javax.swing.JTextField" name="txtValor1">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValor1ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jblDepositar1">
@@ -148,6 +148,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sacar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jblSacar1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

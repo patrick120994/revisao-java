@@ -11,6 +11,7 @@ package programacao;
  */
 public class Terminal extends javax.swing.JFrame {
 
+    Conta conta1;
     /**
      * Creates new form Terminal
      */
@@ -18,11 +19,15 @@ public class Terminal extends javax.swing.JFrame {
         initComponents();
         
         Conta conta1 = new Conta(1,123,"Patrick",500);
+        
+        imprimeConta();
+    }
+
+    public void imprimeConta() {
         lblConta1.setText(conta1.getNomePessoa());
         lblSaldo1.setText(Tools.formataValor(conta1.getSaldo()));
         
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,7 +42,7 @@ public class Terminal extends javax.swing.JFrame {
         lblNome1 = new javax.swing.JLabel();
         lblSaldo1 = new javax.swing.JLabel();
         jblValorSaldo1 = new javax.swing.JLabel();
-        txtValor = new javax.swing.JTextField();
+        txtValor1 = new javax.swing.JTextField();
         jblDepositar1 = new javax.swing.JButton();
         jblSacar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -62,9 +67,9 @@ public class Terminal extends javax.swing.JFrame {
 
         jblValorSaldo1.setText("R$:");
 
-        txtValor.addActionListener(new java.awt.event.ActionListener() {
+        txtValor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorActionPerformed(evt);
+                txtValor1ActionPerformed(evt);
             }
         });
 
@@ -76,6 +81,11 @@ public class Terminal extends javax.swing.JFrame {
         });
 
         jblSacar1.setText("Sacar");
+        jblSacar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jblSacar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,7 +98,7 @@ public class Terminal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(lblSaldo1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -110,7 +120,7 @@ public class Terminal extends javax.swing.JFrame {
                     .addComponent(lblSaldo1)
                     .addComponent(jblValorSaldo1))
                 .addGap(18, 18, 18)
-                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jblDepositar1)
@@ -203,14 +213,25 @@ public class Terminal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
+    private void txtValor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValor1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorActionPerformed
+    }//GEN-LAST:event_txtValor1ActionPerformed
 
     private void jblDepositar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblDepositar1ActionPerformed
-        txtValor.setText("Olá Mundo");
-        lblConta1.setText("Conta do Patrick");
+        double valor = Double.parseDouble(txtValor1.getText());
+        conta1.deposito(valor);
+        
+        imprimeConta();
     }//GEN-LAST:event_jblDepositar1ActionPerformed
+
+    private void jblSacar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblSacar1ActionPerformed
+        // TODO add your handling code here:
+        double valor = Double.parseDouble(txtValor1.getText());
+        conta1.sacar(valor);
+        
+        imprimeConta();
+        
+    }//GEN-LAST:event_jblSacar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,7 +283,7 @@ public class Terminal extends javax.swing.JFrame {
     private javax.swing.JLabel lblConta1;
     private javax.swing.JLabel lblNome1;
     private javax.swing.JLabel lblSaldo1;
-    private javax.swing.JTextField txtValor;
+    private javax.swing.JTextField txtValor1;
     private javax.swing.JTextField txtValor2;
     // End of variables declaration//GEN-END:variables
 }
